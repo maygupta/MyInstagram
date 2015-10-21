@@ -1,29 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingBottom="20dp"
     >
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/ivUserProfileImage"
+        android:scaleType="fitCenter"
+        app:riv_corner_radius="20dip"
+        app:riv_border_width="0dip"
+        app:riv_mutate_background="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        app:riv_tile_mode="repeat"
+        app:riv_oval="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvUsername"
+        android:layout_toRightOf="@+id/ivUserProfileImage"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:drawableLeft="@drawable/clock"
+        android:id="@+id/tvTime"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ivPhoto"
-        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:minHeight="50dp"
+        android:layout_below="@+id/ivUserProfileImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvLikes"
+        android:drawableLeft="@drawable/likes"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/ivPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:adjustViewBounds="true"
-        android:minHeight="50dp" />
+        android:textColor="#1a7bff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvCaption"
-        android:layout_below="@+id/ivPhoto"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
         android:maxLines="3"
         android:longClickable="true"
         android:ellipsize="end"
-        android:elegantTextHeight="false" />
+        android:elegantTextHeight="false"
+        android:layout_below="@+id/tvLikes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+
 
 </RelativeLayout>

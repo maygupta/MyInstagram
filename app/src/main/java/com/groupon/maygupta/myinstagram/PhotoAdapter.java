@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -30,15 +31,26 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         }
 
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
-        TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
+        RoundedImageView ivUserProfileImage = (RoundedImageView) convertView.findViewById(R.id.ivUserProfileImage);
 
-        // Set the caption
+        TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
+        TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
+        TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
+        TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
+
+        // Set the text fields
         tvCaption.setText(photo.caption);
+        tvLikes.setText(photo.getLikes());
+        tvUsername.setText(photo.username);
+        tvTime.setText(photo.getCreatedTime());
 
         // Clear out the image view
         // Insert the image using picasso
         ivPhoto.setImageResource(0);
         Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+
+        ivUserProfileImage.setImageResource(0);
+        Picasso.with(getContext()).load(photo.userProfileImageUrl).into(ivUserProfileImage);
 
         return convertView;
     }
