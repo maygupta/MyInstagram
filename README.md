@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [] Advanced: Add pull-to-refresh for popular stream with SwipeRefreshLayout
-* [] Advanced: Show latest comment for each photo (bonus: show last 2 comments)
+* [x] Advanced: Show latest comment for each photo (bonus: show last 2 comments)
 * [] Advanced: Display each photo with the same style and proportions as the real Instagram (see screens below)
 * [x] Advanced: Display each user profile image using a RoundedImageView
 * [] Advanced: Display a nice default placeholder graphic for each image during loading (read more about Picasso)

@@ -13,7 +13,7 @@
         app:riv_corner_radius="20dip"
         app:riv_border_width="0dip"
         app:riv_mutate_background="true"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
         app:riv_tile_mode="repeat"
         app:riv_oval="true"
@@ -45,6 +45,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/ivPhoto"
         android:adjustViewBounds="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:minHeight="50dp"
         android:layout_below="@+id/ivUserProfileImage"
         android:layout_alignParentLeft="true"
@@ -67,16 +69,37 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvCaption"
-        android:layout_marginLeft="10dp"
         android:maxLines="3"
         android:longClickable="true"
         android:ellipsize="end"
-        android:elegantTextHeight="false"
-        android:layout_below="@+id/tvLikes"
+        android:layout_marginLeft="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:elegantTextHeight="false"
+        android:layout_below="@+id/tvLikes"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvLastComment"
+        android:layout_below="@+id/tvCaption"
+        android:layout_alignLeft="@+id/tvCaption"
+        android:layout_alignStart="@+id/tvCaption"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvSecondLastComment"
+        android:layout_below="@+id/tvLastComment"
+        android:layout_alignLeft="@+id/tvLastComment"
+        android:layout_alignStart="@+id/tvLastComment"
+        android:visibility="gone"
+        />
 
 
 </RelativeLayout>

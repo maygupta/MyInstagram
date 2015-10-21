@@ -37,12 +37,22 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
         TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
         TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
+        TextView tvLastComment = (TextView) convertView.findViewById(R.id.tvLastComment);
+        TextView tvSecondLastComment = (TextView) convertView.findViewById(R.id.tvSecondLastComment);
 
         // Set the text fields
         tvCaption.setText(photo.caption);
         tvLikes.setText(photo.getLikes());
         tvUsername.setText(photo.username);
         tvTime.setText(photo.getCreatedTime());
+        if (photo.getLastComment() != null) {
+            tvLastComment.setText(photo.getLastComment());
+            tvLastComment.setVisibility(View.VISIBLE);
+        }
+        if (photo.getSecondLastComment() != null) {
+            tvSecondLastComment.setText(photo.getSecondLastComment());
+            tvSecondLastComment.setVisibility(View.VISIBLE);
+        }
 
         // Clear out the image view
         // Insert the image using picasso

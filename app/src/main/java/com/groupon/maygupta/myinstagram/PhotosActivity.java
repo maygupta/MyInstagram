@@ -54,6 +54,7 @@ public class PhotosActivity extends AppCompatActivity {
 
                 try {
                     photosJSON = response.getJSONArray("data");
+                    Log.i("Debug", photosJSON.toString());
                     for ( int i = 0 ; i < photosJSON.length(); i++) {
                         JSONObject photoJSON = photosJSON.getJSONObject(i);
 
@@ -69,12 +70,22 @@ public class PhotosActivity extends AppCompatActivity {
                         photo.createdTime = photoJSON.getInt("created_time");
                         photo.userProfileImageUrl = photoJSON.getJSONObject("user").getString("profile_picture");
 
+                        // Attach comments to photo
+                        JSONArray comments = photoJSON.getJSONObject("comments").getJSONArray("data");
+                        if (comments.length() > 0) {
+                            JSONObject comment = comments.getJSONObject(0);
+                            photo.comments.add(String.format("%s : %s",comment.getJSONObject("from").getString("username"),comment.getString("text")));
+                        }
+                        if (comments.length() > 1) {
+                            JSONObject comment = comments.getJSONObject(1);
+                            photo.comments.add(String.format("%s : %s", comment.getJSONObject("from").getString("username"), comment.getString("text")));
+                        }
                         // Add photo to the photos list
                         photos.add(photo);
                     }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } catch (JSONException error) {
+                    error.printStackTrace();
                 }
 
                 adapter.notifyDataSetChanged();
