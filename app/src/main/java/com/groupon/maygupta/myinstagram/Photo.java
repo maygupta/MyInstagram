@@ -16,14 +16,14 @@ public class Photo {
     public int likesCount;
     public long createdTime;
     public String userProfileImageUrl;
-    public ArrayList<String> comments;
+    public ArrayList<Comment> comments;
 
     public String getLikes() {
         return "  " + NumberFormat.getNumberInstance(Locale.US).format(likesCount) + " likes";
     }
 
     public Photo(){
-        comments = new ArrayList<String>();
+        comments = new ArrayList<>();
     }
 
     public String getCreatedTime() {
@@ -51,7 +51,7 @@ public class Photo {
         return " " + timePresenter;
     }
 
-    public String getLastComment(){
+    public Comment getLastComment(){
         if(comments.size() > 0) {
             return comments.get(0);
         } else {
@@ -59,7 +59,7 @@ public class Photo {
         }
     }
 
-    public String getSecondLastComment(){
+    public Comment getSecondLastComment(){
         if (comments.size() > 1) {
             return comments.get(1);
         }else {

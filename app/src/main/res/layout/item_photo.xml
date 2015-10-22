@@ -27,7 +27,9 @@
         android:id="@+id/tvUsername"
         android:layout_toRightOf="@+id/ivUserProfileImage"
         android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:textColor="@color/blue"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +64,7 @@
         android:layout_below="@+id/ivPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#1a7bff" />
+        android:textColor="@color/blue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,7 +79,7 @@
         android:layout_alignParentStart="true"
         android:elegantTextHeight="false"
         android:layout_below="@+id/tvLikes"
-        />
+        android:textColor="@color/blue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,6 +90,7 @@
         android:layout_alignLeft="@+id/tvCaption"
         android:layout_alignStart="@+id/tvCaption"
         android:visibility="gone"
+        android:textColor="@color/blue"
         />
 
     <TextView
@@ -99,6 +102,7 @@
         android:layout_alignLeft="@+id/tvLastComment"
         android:layout_alignStart="@+id/tvLastComment"
         android:visibility="gone"
+        android:textColor="@color/blue"
         />
 
 

@@ -94,12 +94,18 @@ public class PhotosActivity extends AppCompatActivity {
                         // Attach comments to photo
                         JSONArray comments = photoJSON.getJSONObject("comments").getJSONArray("data");
                         if (comments.length() > 0) {
-                            JSONObject comment = comments.getJSONObject(0);
-                            photo.comments.add(String.format("%s : %s",comment.getJSONObject("from").getString("username"),comment.getString("text")));
+                            JSONObject commentJSON = comments.getJSONObject(0);
+                            Comment comment = new Comment(
+                                    commentJSON.getJSONObject("from").getString("username"),
+                                    commentJSON.getString("text"));
+                            photo.comments.add(comment);
                         }
                         if (comments.length() > 1) {
-                            JSONObject comment = comments.getJSONObject(1);
-                            photo.comments.add(String.format("%s : %s", comment.getJSONObject("from").getString("username"), comment.getString("text")));
+                            JSONObject commentJSON = comments.getJSONObject(1);
+                            Comment comment = new Comment(
+                                    commentJSON.getJSONObject("from").getString("username"),
+                                    commentJSON.getString("text"));
+                            photo.comments.add(comment);
                         }
                         // Add photo to the photos list
                         photos.add(photo);

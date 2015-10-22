@@ -1,6 +1,8 @@
 package com.groupon.maygupta.myinstagram;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,16 +43,19 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         TextView tvSecondLastComment = (TextView) convertView.findViewById(R.id.tvSecondLastComment);
 
         // Set the text fields
-        tvCaption.setText(photo.caption);
+        tvCaption.setText(commentToString(photo.username,photo.caption));
         tvLikes.setText(photo.getLikes());
         tvUsername.setText(photo.username);
         tvTime.setText(photo.getCreatedTime());
+
         if (photo.getLastComment() != null) {
-            tvLastComment.setText(photo.getLastComment());
+            Comment comment = photo.getLastComment();
+            tvLastComment.setText(commentToString(comment.username,comment.text));
             tvLastComment.setVisibility(View.VISIBLE);
         }
         if (photo.getSecondLastComment() != null) {
-            tvSecondLastComment.setText(photo.getSecondLastComment());
+            Comment comment = photo.getSecondLastComment();
+            tvSecondLastComment.setText(commentToString(comment.username,comment.text));
             tvSecondLastComment.setVisibility(View.VISIBLE);
         }
 
@@ -63,5 +68,9 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         Picasso.with(getContext()).load(photo.userProfileImageUrl).into(ivUserProfileImage);
 
         return convertView;
+    }
+
+    public Spanned commentToString(String username, String text) {
+        return Html.fromHtml(username + " " + "<font color=black>" + text + "</font>");
     }
 }
