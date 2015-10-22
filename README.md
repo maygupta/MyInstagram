@@ -40,7 +40,4 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-* Storing due dates in sqlite as text and serialize/deserialize it when communicating with Date Picker widget
-* Showing the Spinner view instead of default calendar view for Date Picker. In the end it was straight forward.
-
 
