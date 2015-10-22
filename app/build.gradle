@@ -27,6 +27,7 @@ dependencies {
     // Loading remote images from network into image view
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.makeramen:roundedimageview:2.2.1'
+    compile 'com.android.support:support-v4:23.1.0'
 }
 
 repositories {

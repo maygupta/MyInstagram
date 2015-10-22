@@ -1,6 +1,7 @@
 package com.groupon.maygupta.myinstagram;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -23,12 +24,28 @@ public class PhotosActivity extends AppCompatActivity {
     public static final String CLIENT_ID = "b19ba3b6d52c49cfb8f9df07c46fa441";
     private ArrayList<Photo> photos;
     private PhotoAdapter adapter;
+    private SwipeRefreshLayout swipeContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
 
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initEmptyPhotos();
+                fetchPopularPhotos();
+            }
+        });
+        // Configure the refreshing colors
+
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
         // Initialize array list of photos which will be populated in fetch call
         photos = new ArrayList<>();
 
@@ -40,6 +57,10 @@ public class PhotosActivity extends AppCompatActivity {
 
         // Load photos from Instagram finally
         fetchPopularPhotos();
+    }
+
+    private void initEmptyPhotos() {
+        photos.clear();
     }
 
     private void fetchPopularPhotos() {
@@ -89,6 +110,7 @@ public class PhotosActivity extends AppCompatActivity {
                 }
 
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
 
             @Override

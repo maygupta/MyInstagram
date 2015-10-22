@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class PhotoAdapter extends ArrayAdapter<Photo> {
     public PhotoAdapter(Context context, List<Photo> photos) {
-        super(context, android.R.layout.simple_list_item_1, photos);
+        super(context, 0, photos);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         // Clear out the image view
         // Insert the image using picasso
         ivPhoto.setImageResource(0);
-        Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+        Picasso.with(getContext()).load(photo.imageUrl).placeholder(R.drawable.placeholder).into(ivPhoto);
 
         ivUserProfileImage.setImageResource(0);
         Picasso.with(getContext()).load(photo.userProfileImageUrl).into(ivUserProfileImage);
