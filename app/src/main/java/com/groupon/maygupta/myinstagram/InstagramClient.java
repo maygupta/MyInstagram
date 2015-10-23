@@ -37,7 +37,12 @@ public class InstagramClient {
                     Log.i("Debug", commentsJSON.toString());
                     for (int i = 0; i < commentsJSON.length(); i++) {
                         JSONObject commentJSON = commentsJSON.getJSONObject(i);
-                        comments.add(new Comment(commentJSON.getJSONObject("from").getString("username") , commentJSON.getString("text")));
+                        comments.add(new Comment(
+                                commentJSON.getJSONObject("from").getString("username") ,
+                                commentJSON.getString("text"),
+                                commentJSON.getJSONObject("from").getString("profile_picture"),
+                                commentJSON.getInt("created_time")
+                                ));
                     }
                 } catch (JSONException error) {
                     error.printStackTrace();
