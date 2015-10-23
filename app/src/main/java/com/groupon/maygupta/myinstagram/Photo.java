@@ -30,7 +30,7 @@ public class Photo {
         String timePresenter = "";
 
         long time = System.currentTimeMillis();
-        long postedAt = time - createdTime;
+        long postedAt = time - createdTime*1000;
         int hours = (int) ((postedAt / (1000*60*60)) % 24);
         int minutes = (int) ((postedAt / (1000*60)) % 60);
         int seconds = (int) ((postedAt / (1000)) % 60);
