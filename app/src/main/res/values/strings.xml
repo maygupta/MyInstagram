@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Popular Photos</string>
     <color name="white">#FFFFFF</color>
+    <string name="all_comments">View all comments</string>
+    <string name="commentsTitle">Showing all comments</string>
     <color name="blue">#FF085088</color>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

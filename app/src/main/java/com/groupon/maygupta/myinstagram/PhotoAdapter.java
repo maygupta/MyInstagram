@@ -1,8 +1,6 @@
 package com.groupon.maygupta.myinstagram;
 
 import android.content.Context;
-import android.text.Html;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,21 +39,25 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
         TextView tvLastComment = (TextView) convertView.findViewById(R.id.tvLastComment);
         TextView tvSecondLastComment = (TextView) convertView.findViewById(R.id.tvSecondLastComment);
+        TextView tvViewAllComments = (TextView) convertView.findViewById(R.id.tvViewAllComments);
+
+        // Add tag to view all comments
+        tvViewAllComments.setTag(photo.mediaId);
 
         // Set the text fields
-        tvCaption.setText(commentToString(photo.username,photo.caption));
+        tvCaption.setText(Comment.commentToString(photo.username, photo.caption));
         tvLikes.setText(photo.getLikes());
         tvUsername.setText(photo.username);
         tvTime.setText(photo.getCreatedTime());
 
         if (photo.getLastComment() != null) {
             Comment comment = photo.getLastComment();
-            tvLastComment.setText(commentToString(comment.username,comment.text));
+            tvLastComment.setText(Comment.commentToString(comment.username, comment.text));
             tvLastComment.setVisibility(View.VISIBLE);
         }
         if (photo.getSecondLastComment() != null) {
             Comment comment = photo.getSecondLastComment();
-            tvSecondLastComment.setText(commentToString(comment.username,comment.text));
+            tvSecondLastComment.setText(Comment.commentToString(comment.username, comment.text));
             tvSecondLastComment.setVisibility(View.VISIBLE);
         }
 
@@ -70,7 +72,4 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         return convertView;
     }
 
-    public Spanned commentToString(String username, String text) {
-        return Html.fromHtml(username + " " + "<font color=black>" + text + "</font>");
-    }
 }

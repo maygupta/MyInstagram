@@ -1,10 +1,12 @@
 package com.groupon.maygupta.myinstagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -93,6 +95,14 @@ public class PhotosActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Load comments activity when view all comments is clicked
+    public void loadComments(View view){
+        Intent i = new Intent(PhotosActivity.this, CommentActivity.class);
+        String mediaId = (String) view.getTag();
+        i.putExtra("mediaId", mediaId);
+        startActivity(i);
     }
 
 }

@@ -4,7 +4,7 @@
 
 Submitted by: **Mayank Gupta**
 
-Time spent: **6** hours spent in total
+Time spent: **12** hours spent in total
 
 ## User Stories
 
@@ -19,11 +19,11 @@ The following **optional** features are implemented:
 
 * [x] Advanced: Add pull-to-refresh for popular stream with SwipeRefreshLayout
 * [x] Advanced: Show latest comment for each photo (bonus: show last 2 comments)
-* [] Advanced: Display each photo with the same style and proportions as the real Instagram (see screens below)
+* [x] Advanced: Display each photo with the same style and proportions as the real Instagram (see screens below)
 * [x] Advanced: Display each user profile image using a RoundedImageView
 * [x] Advanced: Display a nice default placeholder graphic for each image during loading (read more about Picasso)
-* [] Advanced: Improve the user interface through styling and coloring
-* [] Bonus: Allow user to view all comments for an image within a separate activity or dialog fragment
+* [x] Advanced: Improve the user interface through styling and coloring
+* [x] Bonus: Allow user to view all comments for an image within a separate activity or dialog fragment
 * [] Bonus: Allow video posts to be played in full-screen using the VideoView
 
 The following **additional** features are implemented:

@@ -17,6 +17,7 @@ public class Photo {
     public long createdTime;
     public String userProfileImageUrl;
     public ArrayList<Comment> comments;
+    public String mediaId;
 
     public String getLikes() {
         return "  " + NumberFormat.getNumberInstance(Locale.US).format(likesCount) + " likes";

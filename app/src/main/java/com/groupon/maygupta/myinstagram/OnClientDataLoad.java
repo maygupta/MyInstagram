@@ -9,4 +9,8 @@ public class OnClientDataLoad {
     public void onLoad(ArrayList<Photo> photos){
         // Do nothing
     }
+
+    public void onCommentsLoad(ArrayList<Comment> comments){
+        // Do nothing
+    }
 }

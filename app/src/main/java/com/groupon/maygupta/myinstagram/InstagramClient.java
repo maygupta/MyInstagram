@@ -20,6 +20,33 @@ public class InstagramClient {
 
     public static final String CLIENT_ID = "b19ba3b6d52c49cfb8f9df07c46fa441";
 
+    public static void fetchAllComments(String mediaId, final OnClientDataLoad dataListener) {
+        String url = String.format("https://api.instagram.com/v1/media/%s/comments?client_id=%s", mediaId, CLIENT_ID);
+        AsyncHttpClient client = new AsyncHttpClient();
+
+
+
+        client.get(url, null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                JSONArray commentsJSON = null;
+                ArrayList<Comment> comments = new ArrayList<Comment>();
+
+                try {
+                    commentsJSON = response.getJSONArray("data");
+                    Log.i("Debug", commentsJSON.toString());
+                    for (int i = 0; i < commentsJSON.length(); i++) {
+                        JSONObject commentJSON = commentsJSON.getJSONObject(i);
+                        comments.add(new Comment(commentJSON.getJSONObject("from").getString("username") , commentJSON.getString("text")));
+                    }
+                } catch (JSONException error) {
+                    error.printStackTrace();
+                }
+                dataListener.onCommentsLoad(comments);
+            }
+        });
+    }
+
     public static void fetchPopularPhotos(final OnClientDataLoad dataListener) {
         String url = "https://api.instagram.com/v1/media/popular?client_id=" + CLIENT_ID;
         AsyncHttpClient client = new AsyncHttpClient();
@@ -48,6 +75,7 @@ public class InstagramClient {
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                         photo.createdTime = photoJSON.getInt("created_time");
                         photo.userProfileImageUrl = photoJSON.getJSONObject("user").getString("profile_picture");
+                        photo.mediaId = photoJSON.getString("id");
 
                         // Attach comments to photo
                         JSONArray comments = photoJSON.getJSONObject("comments").getJSONArray("data");

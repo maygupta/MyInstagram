@@ -84,9 +84,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tvViewAllComments"
+        android:layout_below="@+id/tvCaption"
+        android:text="@string/all_comments"
+        android:layout_alignLeft="@id/tvCaption"
+        android:onClick="loadComments"
+        android:clickable="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvLastComment"
-        android:layout_below="@+id/tvCaption"
+        android:layout_below="@+id/tvViewAllComments"
         android:layout_alignLeft="@+id/tvCaption"
         android:layout_alignStart="@+id/tvCaption"
         android:visibility="gone"
