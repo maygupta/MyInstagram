@@ -4,7 +4,7 @@
 
 Submitted by: **Mayank Gupta**
 
-Time spent: **12** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/maygupta/MyInstagram/blob/master/insta2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/maygupta/MyInstagram/blob/master/insta4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
